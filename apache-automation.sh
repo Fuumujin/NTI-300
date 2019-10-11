@@ -1,4 +1,5 @@
 #!/bin/bash
+if [ -e /usr/bin/wget ]; then exit 0; fi
 if [ -e /etc/httpd ]; then exit 0; fi
 yum -y install httpd mod_ssl                                                                  # Install apache and SSL support
 systemctl start httpd                                                                         # Start apache
