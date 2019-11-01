@@ -12,7 +12,7 @@ def setup_install():
   os.mkdir('/opt/django')
   os.chdir('/opt/django')
   os.system('virutalenv django-env')
-  os.system('chown -R timwalker /opt/django') # We're using shell, because the python builtin chown doesn't work as well
+  os.system('chown -R fuumujin /opt/django') # We're using shell, because the python builtin chown doesn't work as well
   
 def django_install():
   print('activating virtualenv and installing django after pre-requirements have been met') # You must activate the virtualenv shell every time
@@ -25,7 +25,7 @@ def django_install():
 
 def django_start():
   print('starting django')
-  os.system('chown -R timwalker /opt/django')
+  os.system('chown -R fuumujin /opt/django')
   os.chdir('opt/django/project1')
   os.system('source /opt/django/django-env/bin/activate ' + \
       '&& python manage.py migrate')
@@ -43,5 +43,5 @@ def django_start():
   with open('project1/settings.py', "w") as f:
     f.write(newText)
       
-    os.system('sudo -u timwalker sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
+    os.system('sudo -u fuumujin sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
     
