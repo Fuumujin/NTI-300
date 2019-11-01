@@ -11,9 +11,6 @@ def setup_install():
   os.chdir('/opt')
   os.mkdir('/opt/django')
   os.chdir('/opt/django')
-  os.system('adduser -M django')
-  os.system('chown -R django /opt/django')
-  os.system('usermod -L django')
   os.system('virutalenv django-env')
   os.system('chown -R django /opt/django') # We're using shell, because the python builtin chown doesn't work as well
   
@@ -25,11 +22,14 @@ def django_install():
   os.system('source /opt/django/django-env/bin/activate ' + \
        '&& django-admin --version ' + \
        '&& django-admin startproject project1')
+  os.system('adduser -M django')
+  os.system('chown -R django /opt/django')
+  os.system('usermod -L django')
 
-def django_start():
+  def django_start():
   print('starting django')
   os.system('chown -R django /opt/django')
-  os.chdir('opt/django/project1')
+  os.chdir('/opt/django/project1')
   os.system('source /opt/django/django-env/bin/activate ' + \
       '&& python manage.py migrate')
   os.system('source /opt/django/django-env/bin/activate && echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser(\'admin\', \'admin@newproject.com\', \P@$$w0rd1\')" | python manage.py shell')
