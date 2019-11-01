@@ -26,7 +26,7 @@ def django_install():
   os.system('chown -R django /opt/django')
   os.system('usermod -L django')
 
-  def django_start():
+def django_start():
   print('starting django')
   os.system('chown -R django /opt/django')
   os.chdir('/opt/django/project1')
