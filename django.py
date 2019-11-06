@@ -11,7 +11,7 @@ def setup_install():
   os.chdir('/opt')
   os.mkdir('/opt/django')
   os.chdir('/opt/django')
-  os.system('virutalenv django-env')
+  os.system('virtualenv django-env')
   os.system('chown -R django /opt/django') # We're using shell, because the python builtin chown doesn't work as well
   
 def django_install():
