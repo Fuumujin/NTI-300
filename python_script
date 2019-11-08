@@ -81,7 +81,7 @@ def create_instance(compute, project, zone, name):
         'items': [{
             # Startup script is automatically executed by the
             # instance upon startup.
-            'key: 'startup-script',
+            'key': 'startup-script',
             'value': startup_script
         }}
     }
