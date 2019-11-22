@@ -57,7 +57,7 @@ def django_start():
   with open('project1/settings.py') as f:
     newText=f.read().replace(old_string, new_string)
   with open('project1/settings.py', "w") as f:
-    f.write(newText)
+    f.write()
     f.close()  
     
   os.system('sudo -u django sh -c "source /opt/django/django-env/bin/activate && python manage.py runserver 0.0.0.0:8000&"')
